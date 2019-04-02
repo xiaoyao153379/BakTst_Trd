@@ -29,7 +29,7 @@ You can refer to the api of bittrex to check details：[address of API](https://
 ### craw module
 This module was previously used as a separate module to get data. Only, after it collected the data, then you can run BakTst_Org to analyze it. But the data should be transmitted in real time, if we made a quantitative trading system. So I integrate the craw module into BakTst_Trd, and it is a separate process. It will crawl data once every second, and if it crawl a new data of order, it will send the data to main function.
 
-### Portfollio 模块
+### Portfollio module
 In BakTst_Org, this module plays a role that limits position. In BakTst_Trd, this module also plays the same function. But there is also a difference. In BakTst_Org, this module traverses all transactions by using a for loop. In BakTst_Trd, this module only limits the upcoming deal. 
 
 ### main function
