@@ -1,4 +1,5 @@
 # BakTst_Trd
+中文readme：[传送门](https://github.com/xiaoyao153379/BakTst_Trd/blob/master/readme_chinese.md)
 > Introduction: BakTst_Trd is a quantitative trading system of bitcoin.
 ----
 
