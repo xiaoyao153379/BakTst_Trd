@@ -12,9 +12,9 @@ BakTst_Trd is similar to my other project named BakTst_Org (a backtesting system
 ![mind](https://github.com/xiaoyao153379/BakTst_Trd/blob/master/picture/m1.png?raw=true "result")
 
 ### Differences
-* the module of api
-* the module of craw
-* the module of Portfollio
+* api module
+* craw module
+* Portfollio module
 * main function
 
 ### api module

@@ -11,7 +11,7 @@ class Execution:
         self.time = time
         self.principal = principal
         self.coin_number = coin_number
-        self.tip = 1#手续费
+        self.tip = 0.0025#手续费
         self.buy_flap = 1#购买的滑点
         self.sell_flap = 1#卖的滑点
         self.buy_last_price = self.Price + self.buy_flap #买的成交价
@@ -19,23 +19,19 @@ class Execution:
 
     def excu(self):
         if(self.sigle == 'buy'):
-            increase_coins_number = (self.buy_amount - self.tip) /  + self.buy_last_price
+            increase_coins_number = (self.buy_amount - self.buy_amount*self.tip) /  + self.buy_last_price
             self.count_coin_number(increase_coins_number)
             self.count_principal((0.00000-self.buy_amount))
             exchange_number = increase_coins_number
-            #print('action:buy,amount:' + str(increase_coins_number) + ',totle_money:' + str(
-            #    self.buy_amount) + ',retail_price:' + str(self.buy_last_price))
             trade('buy',self.buy_amount,self.buy_last_price)
             self.record(exchange_number,'buy')
             return {'coin_number': self.coin_number, 'principal': self.principal, 'Price': self.buy_last_price}
 
         if(self.sigle == 'sell'):
-            decrease_coin_number = (self.sell_amount - self.tip) / self.Price
+            decrease_coin_number = (self.sell_amount - self.sell_amount*self.tip) / self.Price
             self.count_coin_number((0.00000-decrease_coin_number))
             self.count_principal(self.sell_amount)
             exchange_number = decrease_coin_number
-            #print('action:sell,amount:' + str(decrease_coin_number) + ',totle_money:' + str(
-            #    self.sell_amount) + ',retail_price:' + str(self.sell_last_price))
             trade('sell',self.sell_amount, self.sell_last_price)
             self.record(exchange_number,'sell')
             return {'coin_number': self.coin_number, 'principal': self.principal, 'Price': self.sell_last_price}
